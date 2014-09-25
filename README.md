@@ -38,3 +38,8 @@ The scale factor for your gradient's width (default: 1, flip horizontally: -1).
 
 **Scale Y:**
 The scale factor for your gradient's height (default: 1, flip vertically: -1).
+
+gradients.zip
+=============
+
+Contains the default gradient images. Unzip it in the same level as main.lua.
