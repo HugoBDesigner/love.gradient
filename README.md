@@ -1,4 +1,4 @@
-love.gradient
+gradient.lua
 =============
 
 A quick library for adding basic gradients to Love2D. Just call require at love.load and you're done!
