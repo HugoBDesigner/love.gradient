@@ -4,7 +4,7 @@ love.gradient.types = {"linear", "radial", "angle", "rhombus", "square"}
 love.gradient.images = {}
 
 for i, v in ipairs(love.gradient.types) do
-	if love.filesystem.exists("gradients/" .. v .. ".png") then
+	if love.filesystem.getInfo("gradients/" .. v .. ".png") ~= nil then
 		love.gradient.images[v] = love.graphics.newImage("gradients/" .. v .. ".png")
 	else
 		error("Gradient image \"" .. v .. "\" is missing. Make sure the folder is named \"gradients\" and that it's on the same level as \"main.lua\".")
@@ -73,7 +73,7 @@ function love.gradient.draw(f, gr, cx, cy, w, h, c1, c2, a, sx, sy)
 		f()
 	end
 	
-	love.graphics.setStencil(myStencil)
+	love.graphics.stencil(myStencil)
 	love.graphics.push()
 	--Let the games begin...
 	local px, py = cx, cy
@@ -87,5 +87,5 @@ function love.gradient.draw(f, gr, cx, cy, w, h, c1, c2, a, sx, sy)
 	love.graphics.draw(i, -w/2, -h/2, 0, w*sx/i:getWidth(), h*sy/i:getHeight())
 	
 	love.graphics.pop()
-	love.graphics.setStencil()
+	love.graphics.setStencilTest()
 end
